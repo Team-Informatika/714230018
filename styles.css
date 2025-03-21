@@ -53,3 +53,35 @@ button {
 button:hover {
     background: #764ba2;
 }
+ 
+
+.not-found {
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+}
+
+.not-found h1 {
+    font-size: 80px;
+    color: #ff0000;
+}
+
+.not-found p {
+    font-size: 20px;
+    color: #333;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 18px;
+    color: white;
+    background: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: #0056b3;
+}

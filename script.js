@@ -17,13 +17,38 @@ function sendWebhook() {
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
         console.log("Webhook Response:", data);
         alert("Pesan berhasil dikirim!");
     })
     .catch(error => {
-        console.error("Error:", error);
-        alert("Gagal mengirim pesan.");
+        console.error("Error mengirim webhook:", error);
+        alert("Gagal mengirim pesan. Silakan coba lagi nanti.");
     });
 }
+
+function getWebhookToken() {
+    fetch("https://.com/webhook") // Ganti dengan URL server webhook
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById("webhook-token").innerText = data.token || "Token tidak ditemukan";
+        })
+        .catch(error => {
+            console.error("Error mengambil token webhook:", error);
+            document.getElementById("webhook-token").innerText = "Gagal mengambil token";
+        });
+}
+
+// Panggil saat halaman dimuat
+document.addEventListener("DOMContentLoaded", getWebhookToken);
