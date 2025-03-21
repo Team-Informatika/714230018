@@ -1,5 +1,6 @@
 function showAlert() {
     alert("Terima kasih telah menghubungi saya!");
+    sendWebhook();
 }
 
 function sendWebhook() {
@@ -10,7 +11,7 @@ function sendWebhook() {
         message: "Seseorang menekan tombol Hubungi Saya!"
     };
 
-    fetch("https://t.if.co.id/714230018/webhook", {
+    fetch("https://t.if.co.id/714230018/webhook", { // Ganti dengan URL webhook yang valid
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -23,8 +24,8 @@ function sendWebhook() {
         }
         return response.json();
     })
-    .then(data => {
-        console.log("Webhook Response:", data);
+    .then(responseData => {
+        console.log("Webhook Response:", responseData);
         alert("Pesan berhasil dikirim!");
     })
     .catch(error => {
@@ -34,7 +35,7 @@ function sendWebhook() {
 }
 
 function getWebhookToken() {
-    fetch("https://.com/webhook") // Ganti dengan URL server webhook
+    fetch("https://t.if.co.id/714230018/get-token") // Ganti dengan endpoint yang benar
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
