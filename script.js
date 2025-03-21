@@ -11,10 +11,11 @@ function sendWebhook() {
         message: "Seseorang menekan tombol Hubungi Saya!"
     };
 
-    fetch("https://t.if.co.id/714230018/webhook", { // Ganti dengan URL webhook yang valid
+    fetch("https://asia-southeast2-awangga.cloudfunctions.net/domyid/webhook/github/pemograman_3_2a", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "X-Hub-Signature": "sha256=" + btoa("T4IAwwA5gv8MJyp6GSCtaTocMyTmUwpBF3nVuVUzVysIpWUx")
         },
         body: JSON.stringify(data)
     })
@@ -26,7 +27,7 @@ function sendWebhook() {
     })
     .then(responseData => {
         console.log("Webhook Response:", responseData);
-        alert("Pesan berhasil dikirim!");
+        alert("Pesan berhasil dikirim ke webhook!");
     })
     .catch(error => {
         console.error("Error mengirim webhook:", error);
@@ -35,7 +36,7 @@ function sendWebhook() {
 }
 
 function getWebhookToken() {
-    fetch("https://t.if.co.id/714230018/get-token") // Ganti dengan endpoint yang benar
+    fetch("https://asia-southeast2-awangga.cloudfunctions.net/domyid/webhook/github/get-token")
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
