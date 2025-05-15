@@ -36,6 +36,14 @@ var daftarBarang = []Item{
 		Jumlah:      10,
 		HargaSatuan: 750000,
 	},
+
+	{
+		KodeBarang:  "BRG003",
+		NamaBarang:  "Meja Kerja Kayu",
+		Kategori:    "Furniture",
+		Jumlah:      10,
+		HargaSatuan: 750000,
+	},
 }
 
 // cetakLaporanSiManBar prints the SiManBar report listing all items with details
