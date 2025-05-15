@@ -54,6 +54,6 @@ func cetakLaporanSiManBar(barang []Item) {
 	fmt.Printf("Total Nilai Barang: Rp %.2f\n", totalNilai)
 }
 
-func main() {
+func variable() {
 	cetakLaporanSiManBar(daftarBarang)
 }
