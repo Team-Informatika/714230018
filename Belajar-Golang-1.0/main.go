@@ -6,7 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func helloworld() {
+func main() {
 	app := fiber.New()
 
 	app.Get("/", func(c *fiber.Ctx) error {
