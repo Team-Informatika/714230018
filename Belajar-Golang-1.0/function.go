@@ -279,21 +279,6 @@ func Max(a, b int) int {
 	return b
 }
 
-// Factorial returns the factorial of a non-negative integer
-func Factorial(n int) int {
-	if n < 0 {
-		return -1 // error case, factorial not defined for negative numbers
-	}
-	if n == 0 {
-		return 1
-	}
-	result := 1
-	for i := 1; i <= n; i++ {
-		result *= i
-	}
-	return result
-}
-
 // Example usage demonstrating many functions
 func ExampleUsage() {
 	fmt.Println("Add(3, 4):", Add(3, 4))
@@ -312,8 +297,6 @@ func ExampleUsage() {
 	fmt.Println("Min(10, 20):", Min(10, 20))
 	fmt.Println("IsEven(4):", IsEven(4))
 	fmt.Println("IsOdd(5):", IsOdd(5))
-	fact := Factorial(5)
-	fmt.Println("Factorial(5):", fact)
 	fib, err := Fibonacci(7)
 	if err != nil {
 		fmt.Println("Fibonacci error:", err)
@@ -332,9 +315,9 @@ func ExampleUsage() {
 	fmt.Println(p)
 	p.Birthday()
 	fmt.Println("After birthday:", p)
-	var r Shape = Rectangle{Width: 3, Height: 4}
+	var rect Shape = Rectangle{Width: 3, Height: 4}
 	var c Shape = Circle{Radius: 5}
-	PrintShapeInfo(r)
+	PrintShapeInfo(rect)
 	PrintShapeInfo(c)
 	PrintNumbers()
 	nums := []int{1, 2, 3, 4, 5}
