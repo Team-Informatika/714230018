@@ -20,13 +20,16 @@ func TestSubtractInts(t *testing.T) {
 }
 
 func TestDivideInts(t *testing.T) {
-	result := DivideInts(10, 2)
+	result, err := DivideInts(10, 2)
+	if err != nil {
+		t.Errorf("DivideInts(10, 2) returned error: %v", err)
+	}
 	if result != 5 {
 		t.Errorf("DivideInts(10, 2) = %d; want 5", result)
 	}
-	result = DivideInts(10, 0)
-	if result != 0 {
-		t.Errorf("DivideInts(10, 0) = %d; want 0", result)
+	_, err = DivideInts(10, 0)
+	if err == nil {
+		t.Errorf("DivideInts(10, 0) expected error but got nil")
 	}
 }
 
@@ -43,14 +46,18 @@ func TestSubtractFloats(t *testing.T) {
 		t.Errorf("SubtractFloats(5.5, 3.0) = %f; want 2.5", result)
 	}
 }
+
 func TestDivideFloats(t *testing.T) {
-	result := DivideFloats(10.0, 2.0)
+	result, err := DivideFloats(10.0, 2.0)
+	if err != nil {
+		t.Errorf("DivideFloats(10.0, 2.0) returned error: %v", err)
+	}
 	if result != 5.0 {
 		t.Errorf("DivideFloats(10.0, 2.0) = %f; want 5.0", result)
 	}
-	result = DivideFloats(10.0, 0.0)
-	if result != 0.0 {
-		t.Errorf("DivideFloats(10.0, 0.0) = %f; want 0.0", result)
+	_, err = DivideFloats(10.0, 0.0)
+	if err == nil {
+		t.Errorf("DivideFloats(10.0, 0.0) expected error but got nil")
 	}
 }
 
