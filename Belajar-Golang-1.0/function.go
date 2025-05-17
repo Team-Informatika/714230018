@@ -271,6 +271,29 @@ func MeasureExecutionTime(f func()) time.Duration {
 	return time.Since(start)
 }
 
+// Max returns the maximum of two integers
+func Max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+// Factorial returns the factorial of a non-negative integer
+func Factorial(n int) int {
+	if n < 0 {
+		return -1 // error case, factorial not defined for negative numbers
+	}
+	if n == 0 {
+		return 1
+	}
+	result := 1
+	for i := 1; i <= n; i++ {
+		result *= i
+	}
+	return result
+}
+
 // Example usage demonstrating many functions
 func ExampleUsage() {
 	fmt.Println("Add(3, 4):", Add(3, 4))
@@ -289,12 +312,8 @@ func ExampleUsage() {
 	fmt.Println("Min(10, 20):", Min(10, 20))
 	fmt.Println("IsEven(4):", IsEven(4))
 	fmt.Println("IsOdd(5):", IsOdd(5))
-	fact, err := Factorial(5)
-	if err != nil {
-		fmt.Println("Factorial error:", err)
-	} else {
-		fmt.Println("Factorial(5):", fact)
-	}
+	fact := Factorial(5)
+	fmt.Println("Factorial(5):", fact)
 	fib, err := Fibonacci(7)
 	if err != nil {
 		fmt.Println("Fibonacci error:", err)
@@ -313,9 +332,8 @@ func ExampleUsage() {
 	fmt.Println(p)
 	p.Birthday()
 	fmt.Println("After birthday:", p)
-
-	r := Rectangle{Width: 3, Height: 4}
-	c := Circle{Radius: 5}
+	var r Shape = Rectangle{Width: 3, Height: 4}
+	var c Shape = Circle{Radius: 5}
 	PrintShapeInfo(r)
 	PrintShapeInfo(c)
 	PrintNumbers()
