@@ -4,58 +4,70 @@ import "testing"
 
 func TestSumRange(t *testing.T) {
 	tests := []struct {
+		name       string
 		start, end int
 		want       int
 	}{
-		{1, 5, 15},
-		{0, 0, 0},
-		{3, 3, 3},
-		{5, 1, 0}, // invalid range, expect 0 or no sum
+		{"normal range", 1, 5, 15},
+		{"zero range", 0, 0, 0},
+		{"single element range", 3, 3, 3},
+		{"invalid range", 5, 1, 0},   // invalid range, expect 0 or no sum
+		{"negative range", -3, 3, 0}, // additional test case, expect 0 because loop won't run
 	}
 
 	for _, tt := range tests {
-		got := SumRange(tt.start, tt.end)
-		if got != tt.want {
-			t.Errorf("SumRange(%d, %d) = %d; want %d", tt.start, tt.end, got, tt.want)
-		}
+		t.Run(tt.name, func(t *testing.T) {
+			got := SumRange(tt.start, tt.end)
+			if got != tt.want {
+				t.Errorf("SumRange(%d, %d) = %d; want %d", tt.start, tt.end, got, tt.want)
+			}
+		})
 	}
 }
 
 func TestFactorial(t *testing.T) {
 	tests := []struct {
+		name string
 		n    int
 		want int
 	}{
-		{0, 1},
-		{1, 1},
-		{5, 120},
-		{-1, -1}, // error case
+		{"zero factorial", 0, 1},
+		{"one factorial", 1, 1},
+		{"five factorial", 5, 120},
+		{"negative input", -1, -1},   // error case
+		{"large input", 10, 3628800}, // additional test case
 	}
 
 	for _, tt := range tests {
-		got := Factorial(tt.n)
-		if got != tt.want {
-			t.Errorf("Factorial(%d) = %d; want %d", tt.n, got, tt.want)
-		}
+		t.Run(tt.name, func(t *testing.T) {
+			got := Factorial(tt.n)
+			if got != tt.want {
+				t.Errorf("Factorial(%d) = %d; want %d", tt.n, got, tt.want)
+			}
+		})
 	}
 }
 
 func TestCountVowels(t *testing.T) {
 	tests := []struct {
+		name  string
 		input string
 		want  int
 	}{
-		{"hello", 2},
-		{"HELLO", 2},
-		{"xyz", 0},
-		{"aeiouAEIOU", 10},
-		{"", 0},
+		{"lowercase vowels", "hello", 2},
+		{"uppercase vowels", "HELLO", 2},
+		{"no vowels", "xyz", 0},
+		{"all vowels", "aeiouAEIOU", 10},
+		{"empty string", "", 0},
+		{"mixed string", "Golang is fun!", 4}, // additional test case
 	}
 
 	for _, tt := range tests {
-		got := CountVowels(tt.input)
-		if got != tt.want {
-			t.Errorf("CountVowels(%q) = %d; want %d", tt.input, got, tt.want)
-		}
+		t.Run(tt.name, func(t *testing.T) {
+			got := CountVowels(tt.input)
+			if got != tt.want {
+				t.Errorf("CountVowels(%q) = %d; want %d", tt.input, got, tt.want)
+			}
+		})
 	}
 }
