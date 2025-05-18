@@ -2,17 +2,17 @@ package main
 
 import "fmt"
 
-// LogicIfElseExample evaluates the grade based on nilai and returns the grade string
 func LogicIfElseExample(nilai int) string {
-	if nilai >= 80 {
+	switch {
+	case nilai >= 80:
 		return "Nilai Anda A"
-	} else if nilai >= 70 {
+	case nilai >= 70:
 		return "Nilai Anda B"
-	} else if nilai >= 60 {
+	case nilai >= 60:
 		return "Nilai Anda C"
-	} else if nilai >= 50 {
+	case nilai >= 50:
 		return "Nilai Anda D"
-	} else {
+	default:
 		return "Nilai Anda E"
 	}
 }
@@ -23,7 +23,6 @@ type MenuItem struct {
 	Price int
 }
 
-// ShowMenu displays the menu items
 func ShowMenu(menu []MenuItem) {
 	fmt.Println("Menu Makanan:")
 	for i, item := range menu {
@@ -32,7 +31,6 @@ func ShowMenu(menu []MenuItem) {
 	fmt.Println("0. Selesai")
 }
 
-// KasirMenu runs the cashier menu system for food ordering
 func KasirMenu() {
 	menu := []MenuItem{
 		{"Nasi Goreng", 15000},
@@ -43,7 +41,7 @@ func KasirMenu() {
 		{"Es Jeruk", 7000},
 	}
 
-	order := make(map[int]int) // map menu index to quantity
+	order := make(map[int]int)
 	var choice, qty int
 
 	for {
