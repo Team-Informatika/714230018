@@ -2,7 +2,8 @@ package main
 
 import "testing"
 
-func TestComplexIfElseExample(t *testing.T) {
+func TestComplexGrader_Grade(t *testing.T) {
+	grader := ComplexGrader{}
 	tests := []struct {
 		name      string
 		nilai     int
@@ -22,9 +23,9 @@ func TestComplexIfElseExample(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := ComplexIfElseExample(tt.nilai, tt.kehadiran)
+			got := grader.Grade(tt.nilai, tt.kehadiran)
 			if got != tt.want {
-				t.Errorf("ComplexIfElseExample(%d, %d) = %q; want %q", tt.nilai, tt.kehadiran, got, tt.want)
+				t.Errorf("ComplexGrader.Grade(%d, %d) = %q; want %q", tt.nilai, tt.kehadiran, got, tt.want)
 			}
 		})
 	}
