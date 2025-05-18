@@ -75,3 +75,51 @@ func MultiplyFloats(a, b float64) float64 {
 func DivideFloats(a, b float64) (float64, error) {
 	return GenDivide[float64](a, b)
 }
+
+func EqualInts(a, b int) bool {
+	return a == b
+}
+
+func NotEqualInts(a, b int) bool {
+	return a != b
+}
+
+func GreaterThanInts(a, b int) bool {
+	return a > b
+}
+
+func LessThanInts(a, b int) bool {
+	return a < b
+}
+
+func GreaterThanOrEqualInts(a, b int) bool {
+	return a >= b
+}
+
+func LessThanOrEqualInts(a, b int) bool {
+	return a <= b
+}
+
+func EqualFloats(a, b float64) bool {
+	return a == b
+}
+
+func NotEqualFloats(a, b float64) bool {
+	return a != b
+}
+
+func GreaterThanFloats(a, b float64) bool {
+	return a > b
+}
+
+func LessThanFloats(a, b float64) bool {
+	return a < b
+}
+
+func GreaterThanOrEqualFloats(a, b float64) bool {
+	return a >= b
+}
+
+func LessThanOrEqualFloats(a, b float64) bool {
+	return a <= b
+}
