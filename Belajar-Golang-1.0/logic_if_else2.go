@@ -2,8 +2,16 @@ package main
 
 import "fmt"
 
-// ComplexIfElseExample demonstrates complex if-else logic with multiple conditions and nested ifs
-func ComplexIfElseExample(nilai int, kehadiran int) string {
+// Grader interface defines a method to grade based on nilai and kehadiran
+type Grader interface {
+	Grade(nilai int, kehadiran int) string
+}
+
+// ComplexGrader implements Grader interface with complex if-else logic
+type ComplexGrader struct{}
+
+// Grade returns the grade string based on nilai and kehadiran
+func (cg ComplexGrader) Grade(nilai int, kehadiran int) string {
 	if nilai >= 80 {
 		if kehadiran >= 90 {
 			return "Sangat Baik: A+"
@@ -33,13 +41,14 @@ func ComplexIfElseExample(nilai int, kehadiran int) string {
 	}
 }
 
-// ExampleComplex demonstrates usage of ComplexIfElseExample
+// ExampleComplex demonstrates usage of ComplexGrader
 func ExampleComplex() {
 	var nilai, kehadiran int
 	fmt.Print("Masukkan nilai: ")
 	fmt.Scan(&nilai)
 	fmt.Print("Masukkan persentase kehadiran: ")
 	fmt.Scan(&kehadiran)
-	result := ComplexIfElseExample(nilai, kehadiran)
+	var grader Grader = ComplexGrader{}
+	result := grader.Grade(nilai, kehadiran)
 	fmt.Println(result)
 }
