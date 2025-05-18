@@ -14,9 +14,9 @@ func TestEqualInts(t *testing.T) {
 		{-1, 1, false},
 	}
 	for _, tt := range tests {
-		got := EqualInts(tt.a, tt.b)
+		got := Equal[int](tt.a, tt.b)
 		if got != tt.want {
-			t.Errorf("EqualInts(%d, %d) = %v; want %v", tt.a, tt.b, got, tt.want)
+			t.Errorf("Equal[int](%d, %d) = %v; want %v", tt.a, tt.b, got, tt.want)
 		}
 	}
 }
@@ -33,9 +33,9 @@ func TestNotEqualInts(t *testing.T) {
 		{-1, 1, true},
 	}
 	for _, tt := range tests {
-		got := NotEqualInts(tt.a, tt.b)
+		got := NotEqual[int](tt.a, tt.b)
 		if got != tt.want {
-			t.Errorf("NotEqualInts(%d, %d) = %v; want %v", tt.a, tt.b, got, tt.want)
+			t.Errorf("NotEqual[int](%d, %d) = %v; want %v", tt.a, tt.b, got, tt.want)
 		}
 	}
 }
@@ -52,9 +52,9 @@ func TestGreaterThanInts(t *testing.T) {
 		{-1, 0, false},
 	}
 	for _, tt := range tests {
-		got := GreaterThanInts(tt.a, tt.b)
+		got := GreaterThan[int](tt.a, tt.b)
 		if got != tt.want {
-			t.Errorf("GreaterThanInts(%d, %d) = %v; want %v", tt.a, tt.b, got, tt.want)
+			t.Errorf("GreaterThan[int](%d, %d) = %v; want %v", tt.a, tt.b, got, tt.want)
 		}
 	}
 }
@@ -71,9 +71,9 @@ func TestLessThanInts(t *testing.T) {
 		{0, -1, false},
 	}
 	for _, tt := range tests {
-		got := LessThanInts(tt.a, tt.b)
+		got := LessThan[int](tt.a, tt.b)
 		if got != tt.want {
-			t.Errorf("LessThanInts(%d, %d) = %v; want %v", tt.a, tt.b, got, tt.want)
+			t.Errorf("LessThan[int](%d, %d) = %v; want %v", tt.a, tt.b, got, tt.want)
 		}
 	}
 }
@@ -91,9 +91,9 @@ func TestGreaterThanOrEqualInts(t *testing.T) {
 		{-2, -1, false},
 	}
 	for _, tt := range tests {
-		got := GreaterThanOrEqualInts(tt.a, tt.b)
+		got := GreaterThanOrEqual[int](tt.a, tt.b)
 		if got != tt.want {
-			t.Errorf("GreaterThanOrEqualInts(%d, %d) = %v; want %v", tt.a, tt.b, got, tt.want)
+			t.Errorf("GreaterThanOrEqual[int](%d, %d) = %v; want %v", tt.a, tt.b, got, tt.want)
 		}
 	}
 }
@@ -111,9 +111,9 @@ func TestLessThanOrEqualInts(t *testing.T) {
 		{-1, -2, false},
 	}
 	for _, tt := range tests {
-		got := LessThanOrEqualInts(tt.a, tt.b)
+		got := LessThanOrEqual[int](tt.a, tt.b)
 		if got != tt.want {
-			t.Errorf("LessThanOrEqualInts(%d, %d) = %v; want %v", tt.a, tt.b, got, tt.want)
+			t.Errorf("LessThanOrEqual[int](%d, %d) = %v; want %v", tt.a, tt.b, got, tt.want)
 		}
 	}
 }
@@ -130,9 +130,9 @@ func TestEqualFloats(t *testing.T) {
 		{-1.0, 1.0, false},
 	}
 	for _, tt := range tests {
-		got := EqualFloats(tt.a, tt.b)
+		got := Equal[float64](tt.a, tt.b)
 		if got != tt.want {
-			t.Errorf("EqualFloats(%f, %f) = %v; want %v", tt.a, tt.b, got, tt.want)
+			t.Errorf("Equal[float64](%f, %f) = %v; want %v", tt.a, tt.b, got, tt.want)
 		}
 	}
 }
@@ -149,9 +149,9 @@ func TestNotEqualFloats(t *testing.T) {
 		{-1.0, 1.0, true},
 	}
 	for _, tt := range tests {
-		got := NotEqualFloats(tt.a, tt.b)
+		got := NotEqual[float64](tt.a, tt.b)
 		if got != tt.want {
-			t.Errorf("NotEqualFloats(%f, %f) = %v; want %v", tt.a, tt.b, got, tt.want)
+			t.Errorf("NotEqual[float64](%f, %f) = %v; want %v", tt.a, tt.b, got, tt.want)
 		}
 	}
 }
@@ -168,9 +168,9 @@ func TestGreaterThanFloats(t *testing.T) {
 		{-1.0, 0.0, false},
 	}
 	for _, tt := range tests {
-		got := GreaterThanFloats(tt.a, tt.b)
+		got := GreaterThan[float64](tt.a, tt.b)
 		if got != tt.want {
-			t.Errorf("GreaterThanFloats(%f, %f) = %v; want %v", tt.a, tt.b, got, tt.want)
+			t.Errorf("GreaterThan[float64](%f, %f) = %v; want %v", tt.a, tt.b, got, tt.want)
 		}
 	}
 }
@@ -187,9 +187,9 @@ func TestLessThanFloats(t *testing.T) {
 		{0.0, -1.0, false},
 	}
 	for _, tt := range tests {
-		got := LessThanFloats(tt.a, tt.b)
+		got := LessThan[float64](tt.a, tt.b)
 		if got != tt.want {
-			t.Errorf("LessThanFloats(%f, %f) = %v; want %v", tt.a, tt.b, got, tt.want)
+			t.Errorf("LessThan[float64](%f, %f) = %v; want %v", tt.a, tt.b, got, tt.want)
 		}
 	}
 }
@@ -207,9 +207,9 @@ func TestGreaterThanOrEqualFloats(t *testing.T) {
 		{-2.0, -1.0, false},
 	}
 	for _, tt := range tests {
-		got := GreaterThanOrEqualFloats(tt.a, tt.b)
+		got := GreaterThanOrEqual[float64](tt.a, tt.b)
 		if got != tt.want {
-			t.Errorf("GreaterThanOrEqualFloats(%f, %f) = %v; want %v", tt.a, tt.b, got, tt.want)
+			t.Errorf("GreaterThanOrEqual[float64](%f, %f) = %v; want %v", tt.a, tt.b, got, tt.want)
 		}
 	}
 }
@@ -227,9 +227,9 @@ func TestLessThanOrEqualFloats(t *testing.T) {
 		{-1.0, -2.0, false},
 	}
 	for _, tt := range tests {
-		got := LessThanOrEqualFloats(tt.a, tt.b)
+		got := LessThanOrEqual[float64](tt.a, tt.b)
 		if got != tt.want {
-			t.Errorf("LessThanOrEqualFloats(%f, %f) = %v; want %v", tt.a, tt.b, got, tt.want)
+			t.Errorf("LessThanOrEqual[float64](%f, %f) = %v; want %v", tt.a, tt.b, got, tt.want)
 		}
 	}
 }
