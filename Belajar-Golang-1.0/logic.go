@@ -1,25 +1,10 @@
-// Additional varied logic functions for learning coding
+// Alternative logical functions for learning coding
 
 package main
 
-// And returns the logical AND of two boolean values
-func And(a, b bool) bool {
-	return a && b
-}
-
-// Or returns the logical OR of two boolean values
-func Or(a, b bool) bool {
-	return a || b
-}
-
-// Not returns the logical NOT of a boolean value
-func Not(a bool) bool {
-	return !a
-}
-
-// Xor returns the logical exclusive OR of two boolean values
-func Xor(a, b bool) bool {
-	return (a || b) && !(a && b)
+// Nor returns the logical NOR of two boolean values
+func Nor(a, b bool) bool {
+	return !(a || b)
 }
 
 // Nand returns the logical NAND of two boolean values
@@ -27,14 +12,24 @@ func Nand(a, b bool) bool {
 	return !(a && b)
 }
 
-// Nor returns the logical NOR of two boolean values
-func Nor(a, b bool) bool {
-	return !(a || b)
+// Xor returns the logical exclusive OR of two boolean values
+func Xor(a, b bool) bool {
+	return a != b
 }
 
 // Xnor returns the logical equivalence (XNOR) of two boolean values
 func Xnor(a, b bool) bool {
 	return a == b
+}
+
+// And3 returns the logical AND of three boolean values
+func And3(a, b, c bool) bool {
+	return a && b && c
+}
+
+// Or3 returns the logical OR of three boolean values
+func Or3(a, b, c bool) bool {
+	return a || b || c
 }
 
 // Majority returns true if at least two of the three inputs are true
