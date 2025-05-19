@@ -9,23 +9,8 @@ import (
 	"time"
 )
 
-// Add returns the sum of two integers
-func Add(a int, b int) int {
-	return a + b
-}
-
-// Subtract returns the difference of two integers
-func Subtract(a int, b int) int {
-	return a - b
-}
-
-// Multiply returns the product of two integers
-func Multiply(a int, b int) int {
-	return a * b
-}
-
-// Divide returns the quotient and remainder of two integers
-func Divide(a int, b int) (int, int, error) {
+// DivideWithRemainder returns the quotient and remainder of two integers
+func DivideWithRemainder(a int, b int) (int, int, error) {
 	if b == 0 {
 		return 0, 0, errors.New("division by zero")
 	}
@@ -281,10 +266,10 @@ func Max(a, b int) int {
 
 // Example usage demonstrating many functions
 func ExampleUsage() {
-	fmt.Println("Add(3, 4):", Add(3, 4))
-	fmt.Println("Subtract(10, 5):", Subtract(10, 5))
-	fmt.Println("Multiply(2, 3):", Multiply(2, 3))
-	q, r, err := Divide(10, 3)
+	fmt.Println("Add(3, 4):", Add(3.0, 4.0))
+	fmt.Println("Subtract(10, 5):", Subtract(10.0, 5.0))
+	fmt.Println("Multiply(2, 3):", Multiply(2.0, 3.0))
+	q, r, err := DivideWithRemainder(10, 3)
 	if err != nil {
 		fmt.Println("Divide error:", err)
 	} else {
