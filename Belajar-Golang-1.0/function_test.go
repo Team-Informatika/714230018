@@ -24,15 +24,15 @@ func TestMultiply(t *testing.T) {
 }
 
 func TestDivide(t *testing.T) {
-	quotient, remainder, err := Divide(10, 3)
+	result, err := Divide(10, 3)
 	if err != nil {
 		t.Errorf("Divide(10, 3) unexpected error: %v", err)
 	}
-	if quotient != 3 || remainder != 1 {
-		t.Errorf("Divide(10, 3) = (%d, %d); want (3, 1)", quotient, remainder)
+	if result != 3.3333333333333335 {
+		t.Errorf("Divide(10, 3) = %f; want 3.3333333333333335", result)
 	}
 
-	_, _, err = Divide(10, 0)
+	_, err = Divide(10, 0)
 	if err == nil {
 		t.Error("Divide(10, 0) expected error, got nil")
 	}
