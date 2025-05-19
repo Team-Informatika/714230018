@@ -26,15 +26,15 @@ func TestMultiplyUnique(t *testing.T) {
 }
 
 func TestDivideUnique(t *testing.T) {
-	quotient, remainder, err := Divide(10, 3)
+	result, err := Divide(10.0, 3.0)
 	if err != nil {
 		t.Errorf("Divide(10,3) returned error: %v", err)
 	}
-	if quotient != 3 || remainder != 1 {
-		t.Errorf("Divide(10,3) = quotient %d, remainder %d; want 3, 1", quotient, remainder)
+	if result != 3.3333333333333335 {
+		t.Errorf("Divide(10,3) = %f; want 3.3333333333333335", result)
 	}
 
-	_, err = Divide(10, 0)
+	_, err = Divide(10.0, 0.0)
 	if err == nil {
 		t.Errorf("Divide(10,0) expected error but got nil")
 	}
