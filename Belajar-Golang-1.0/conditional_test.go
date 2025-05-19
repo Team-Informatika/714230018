@@ -35,6 +35,11 @@ func TestGradeClassifier(t *testing.T) {
 		{"grade C", 75, "C"},
 		{"grade D", 65, "D"},
 		{"grade F", 50, "F"},
+		{"boundary A", 90, "A"},
+		{"boundary B", 80, "B"},
+		{"boundary C", 70, "C"},
+		{"boundary D", 60, "D"},
+		{"below F", 0, "F"},
 	}
 
 	for _, tt := range tests {
@@ -47,7 +52,7 @@ func TestGradeClassifier(t *testing.T) {
 	}
 }
 
-func TestMax(t *testing.T) {
+func TestMaxInt(t *testing.T) {
 	tests := []struct {
 		name string
 		a, b int
@@ -61,9 +66,9 @@ func TestMax(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := Max(tt.a, tt.b)
+			got := MaxInt(tt.a, tt.b)
 			if got != tt.want {
-				t.Errorf("Max(%d, %d) = %d; want %d", tt.a, tt.b, got, tt.want)
+				t.Errorf("MaxInt(%d, %d) = %d; want %d", tt.a, tt.b, got, tt.want)
 			}
 		})
 	}
@@ -100,6 +105,8 @@ func TestIsLeapYear(t *testing.T) {
 		{"year divisible by 100 but not 400", 1900, false},
 		{"year divisible by 4 but not 100", 2012, true},
 		{"year not divisible by 4", 2019, false},
+		{"year zero", 0, true},
+		{"negative year divisible by 4", -4, true},
 	}
 
 	for _, tt := range tests {
@@ -144,6 +151,10 @@ func TestTemperatureClassification(t *testing.T) {
 		{"warm", 20.0, "Warm"},
 		{"hot", 30.0, "Hot"},
 		{"unknown", 999.0, "Unknown"},
+		{"boundary freezing", 0.0, "Freezing"},
+		{"boundary cold", 15.0, "Cold"},
+		{"boundary warm", 25.0, "Warm"},
+		{"boundary hot", 35.0, "Hot"},
 	}
 
 	for _, tt := range tests {
