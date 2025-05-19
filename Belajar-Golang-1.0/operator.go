@@ -1,6 +1,9 @@
 package main
 
-import "errors"
+import (
+	"errors"
+	"math"
+)
 
 // Number is a constraint that permits any integer or float type.
 type Number interface {
@@ -101,10 +104,22 @@ func LessThanOrEqualInts(a, b int) bool {
 }
 
 func EqualFloats(a, b float64) bool {
+	// Handle NaN and -0.0 correctly
+	if math.IsNaN(a) && math.IsNaN(b) {
+		return false
+	}
+	if a == 0 && b == 0 {
+		// Treat -0.0 and 0.0 as equal
+		return true
+	}
 	return a == b
 }
 
 func NotEqualFloats(a, b float64) bool {
+	// Handle NaN correctly
+	if math.IsNaN(a) || math.IsNaN(b) {
+		return true
+	}
 	return a != b
 }
 
