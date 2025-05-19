@@ -67,3 +67,32 @@ func CountVowels(s string) int {
 	// Return the total count of vowels in the string
 	return count
 }
+
+/* Added new functions GenerateRange and MaxInSlice */
+
+// GenerateRange returns a slice of integers from start to end inclusive
+func GenerateRange(start, end int) []int {
+	if end < start {
+		return []int{}
+	}
+	size := end - start + 1
+	result := make([]int, size)
+	for i := 0; i < size; i++ {
+		result[i] = start + i
+	}
+	return result
+}
+
+// MaxInSlice returns the maximum integer in a slice, or 0 if slice is empty
+func MaxInSlice(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+	max := nums[0]
+	for _, v := range nums {
+		if v > max {
+			max = v
+		}
+	}
+	return max
+}
