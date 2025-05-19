@@ -25,7 +25,7 @@ func Divide(a, b float64) (float64, error) {
 	return a / b, nil
 }
 
-func main() {
+func ExampleArithmetic() {
 	// Demonstrate basic arithmetic
 	a, b := 15.0, 4.0
 
