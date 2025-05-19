@@ -12,15 +12,17 @@ func CheckEvenOdd(num int) string {
 func GradeClassifier(score int) string {
 	if score >= 90 {
 		return "A"
-	} else if score >= 80 {
-		return "B"
-	} else if score >= 70 {
-		return "C"
-	} else if score >= 60 {
-		return "D"
-	} else {
-		return "F"
 	}
+	if score >= 80 {
+		return "B"
+	}
+	if score >= 70 {
+		return "C"
+	}
+	if score >= 60 {
+		return "D"
+	}
+	return "F"
 }
 
 func MaxInt(a, b int) int {
@@ -39,9 +41,11 @@ func IsPositive(num int) bool {
 func IsLeapYear(year int) bool {
 	if year%400 == 0 {
 		return true
-	} else if year%100 == 0 {
+	}
+	if year%100 == 0 {
 		return false
-	} else if year%4 == 0 {
+	}
+	if year%4 == 0 {
 		return true
 	}
 	return false
@@ -51,24 +55,26 @@ func IsLeapYear(year int) bool {
 func DescribeNumber(num int) string {
 	if num == 0 {
 		return "zero"
-	} else if num > 0 {
-		return "positive"
-	} else {
-		return "negative"
 	}
+	if num > 0 {
+		return "positive"
+	}
+	return "negative"
 }
 
 // TemperatureClassification classifies temperature into categories
 func TemperatureClassification(temp float64) string {
 	if temp <= 0 {
 		return "Freezing"
-	} else if temp > 0 && temp <= 15 {
-		return "Cold"
-	} else if temp > 15 && temp <= 25 {
-		return "Warm"
-	} else if temp > 25 && temp <= 35 {
-		return "Hot"
-	} else {
-		return "Unknown"
 	}
+	if temp <= 15 {
+		return "Cold"
+	}
+	if temp <= 25 {
+		return "Warm"
+	}
+	if temp <= 35 {
+		return "Hot"
+	}
+	return "Unknown"
 }
